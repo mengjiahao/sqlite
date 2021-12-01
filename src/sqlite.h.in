@@ -4350,6 +4350,8 @@ int sqlite3_stmt_busy(sqlite3_stmt*);
 ** [sqlite3_value_dup()].
 ** The [sqlite3_value_blob | sqlite3_value_type()] family of
 ** interfaces require protected sqlite3_value objects.
+**
+** mjh: 缺点是比较难以找到类型定义。
 */
 typedef struct sqlite3_value sqlite3_value;
 

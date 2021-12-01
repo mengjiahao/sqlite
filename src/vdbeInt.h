@@ -14,6 +14,8 @@
 ** source code file "vdbe.c".  When that file became too big (over
 ** 6000 lines long) it was split up into several smaller files and
 ** this header information was factored out.
+**
+** mjh: vdbe.h中类型的真正定义。
 */
 #ifndef SQLITE_VDBEINT_H
 #define SQLITE_VDBEINT_H
@@ -197,6 +199,8 @@ struct VdbeFrame {
 ** Internally, the vdbe manipulates nearly all SQL values as Mem
 ** structures. Each Mem struct may cache multiple representations (string,
 ** integer etc.) of the same value.
+**
+** mjh: 在虚拟机中定义动态类型sqlite3_value，也是Mem.
 */
 struct sqlite3_value {
   union MemValue {

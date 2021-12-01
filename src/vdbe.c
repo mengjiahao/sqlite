@@ -17,6 +17,8 @@
 ** of the code in this file is, therefore, important.  See other comments
 ** in this file for details.  If in doubt, do not deviate from existing
 ** commenting and indentation practices when changing or adding code.
+**
+** mjh: 有点类似于redis，通过OpCode（Command）以及arg去调用底层函数实现。
 */
 #include "sqliteInt.h"
 #include "vdbeInt.h"
@@ -1675,6 +1677,7 @@ case OP_Remainder: {           /* same as TK_REM, in1, in2, out3 */
   double rA;      /* Real value of left operand */
   double rB;      /* Real value of right operand */
 
+  // 注意参数都是Mem. p1,p2,p3由于是int，因此是索引。
   pIn1 = &aMem[pOp->p1];
   type1 = numericType(pIn1);
   pIn2 = &aMem[pOp->p2];
